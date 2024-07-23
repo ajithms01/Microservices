@@ -3,12 +3,12 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 server:
-  port: 9098
+  port: 9099
 spring:
   application:
-    name: productservice
+    name: FacultyService
   datasource:
-    url: jdbc:mysql://localhost:3306/product
+    url: jdbc:mysql://localhost:3306/college
     username: root
     password: pass@word1
     driver-class-name: com.mysql.cj.jdbc.Driver

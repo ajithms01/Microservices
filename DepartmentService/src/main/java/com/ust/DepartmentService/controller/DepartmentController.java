@@ -1,5 +1,6 @@
 package com.ust.DepartmentService.controller;
 
+import com.ust.DepartmentService.client.FullResponse;
 import com.ust.DepartmentService.model.Department;
 import com.ust.DepartmentService.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/withstudents/{deptid}")
-    public ResponseEntity<Department> getDepartmentById(@PathVariable String id) {
-        return ResponseEntity.ok(departmentService.getDepartmentById(id));
+    public ResponseEntity<FullResponse> getDepartmentById(@PathVariable String deptid) {
+        return ResponseEntity.ok(departmentService.getDepartmentById(deptid));
     }
 }

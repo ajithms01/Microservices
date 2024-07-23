@@ -29,4 +29,9 @@ public class StudentController {
     public ResponseEntity<Student> updateStudent(@PathVariable String id, @RequestBody Student student){
         return ResponseEntity.ok(studentService.updateStudent(id,student));
     }
+
+    @GetMapping("getByDeptId/{id}")
+    public ResponseEntity<List<Student>> getByDeptId(@PathVariable String id){
+        return ResponseEntity.ok(studentService.getByDeptId(id));
+    }
 }

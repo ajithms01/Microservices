@@ -30,4 +30,8 @@ public class StudentService {
         studentWithId.setCourseId(student.getCourseId());
         return studentRepository.save(studentWithId);
     }
+
+    public List<Student> getByDeptId(String id) {
+        return studentRepository.findAllByDeptId(id);
+    }
 }
