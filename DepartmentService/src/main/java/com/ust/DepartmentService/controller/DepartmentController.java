@@ -1,5 +1,6 @@
 package com.ust.DepartmentService.controller;
 
+import com.ust.DepartmentService.client.FacultyResponse;
 import com.ust.DepartmentService.client.FullResponse;
 import com.ust.DepartmentService.model.Department;
 import com.ust.DepartmentService.service.DepartmentService;
@@ -31,7 +32,12 @@ public class DepartmentController {
     }
 
     @GetMapping("/withstudents/{deptid}")
-    public ResponseEntity<FullResponse> getDepartmentById(@PathVariable String deptid) {
+    public ResponseEntity<FullResponse> getDepartmentStudentsById(@PathVariable String deptid) {
         return ResponseEntity.ok(departmentService.getDepartmentById(deptid));
+    }
+
+    @GetMapping("/withfaculty/{deptid}")
+    public ResponseEntity<FacultyResponse> getDepartmentFacultyById(@PathVariable String deptid) {
+        return ResponseEntity.ok(departmentService.getDepartmentFacultyById(deptid));
     }
 }

@@ -1,7 +1,9 @@
 package com.ust.DepartmentService.service;
 
 import com.netflix.discovery.converters.Auto;
+import com.ust.DepartmentService.client.FacultyResponse;
 import com.ust.DepartmentService.client.FullResponse;
+import com.ust.DepartmentService.feign.FacultyClient;
 import com.ust.DepartmentService.feign.StudentClient;
 import com.ust.DepartmentService.model.Department;
 import com.ust.DepartmentService.repository.DepartmentRepository;
@@ -16,6 +18,8 @@ public class DepartmentService {
     private DepartmentRepository departmentRepository;
     @Autowired
     StudentClient studentClient;
+    @Autowired
+    FacultyClient facultyClient;
 
 
     public Department addDepartment(Department department) {
@@ -46,5 +50,14 @@ public class DepartmentService {
         fullResponse.setDeptName(department.getDeptName());
         fullResponse.setStudents(studentClient.getByDeptId(id));
         return fullResponse;
+    }
+
+    public FacultyResponse getDepartmentFacultyById(String id) {
+        Department department = departmentRepository.findById(id).orElse(null);
+        FacultyResponse facultyResponse= new FacultyResponse();
+        facultyResponse.setDeptId(department.getDeptId());
+        facultyResponse.setDeptName(department.getDeptName());
+        facultyResponse.setFaculty(facultyClient.getByDeptId(id));
+        return facultyResponse;
     }
 }
