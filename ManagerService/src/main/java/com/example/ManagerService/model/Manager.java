@@ -1,20 +1,20 @@
-package com.ust.FacultyService.model;
+package com.example.ManagerService.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.internal.build.AllowNonPortable;
 
-@Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Faculty {
+@Data
+public class Manager {
     @Id
-    String facultyId;
-    String facultyName;
-    String deptId;
-    String contact;
     String managerId;
+    String managerName;
+    String contact;
+
 }

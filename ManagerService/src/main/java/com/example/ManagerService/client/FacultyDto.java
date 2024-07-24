@@ -1,6 +1,5 @@
-package com.ust.FacultyService.model;
+package com.example.ManagerService.client;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Faculty {
-    @Id
+public class FacultyDto {
+
     String facultyId;
     String facultyName;
     String deptId;
